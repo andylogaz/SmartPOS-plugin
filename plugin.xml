@@ -26,7 +26,7 @@
 		<source-file src="src/android/libs/zbar.jar" target-dir="libs" />
 		<source-file src="src/android/libs/zxing-core-3.2.0.jar" target-dir="libs" />
 
-		<source-file src="src/android/smartPOSPlugin.java" target-dir="src/uk/co/smartrak/smartpos" />
+		<source-file src="src/android/SmartPOSPlugin.java" target-dir="src/uk/co/smartrak/smartpos" />
 	</platform>
 
 </plugin>
