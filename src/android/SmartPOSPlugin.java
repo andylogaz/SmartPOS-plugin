@@ -56,20 +56,26 @@ public class SmartPOSPlugin extends CordovaPlugin {
 	@Override
 	public void initialize(final CordovaInterface cordova, CordovaWebView webView)
 	{
+		Log.d(LOG_TAG, "Initializing");
 		super.initialize(cordova, webView);
+		Log.d(LOG_TAG, "Getting device instance");
 		mDevice = Device.getInstance();
+		Log.d(LOG_TAG, "Getting print manager");
 		mPrinterManager 		= (PrinterManager)mDevice.getDeviceInstance(Device.DEV_TYPE_PRINTER);
+		Log.d(LOG_TAG, "Preparing");
 		this.prepare();
 	}
 
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		if (action.equals("print")) {
+			Log.d(LOG_TAG, "Print called");
 			this.pluginCallbackContext = callbackContext;
 			String printString = args.getString(0);
 			try {
 				this.print(printString);
 			} catch(SmartPosException e) {
+				Log.d(LOG_TAG, "Print error", e);
 				callbackContext.error("Exception caught");
 			}
 			return true;
@@ -96,12 +102,15 @@ public class SmartPOSPlugin extends CordovaPlugin {
 	*/
 	private int prepare() {
 		try {
+			Log.d(LOG_TAG, "Initializing printer");
 			mPrinterManager.init();
 		} catch (SmartPosException e) {
+			Log.d(LOG_TAG, "We got an error initializing", e);
 			return e.getErrorCode();
 		}
 
 		if (!mPrinterManager.paperStatus()) {
+			Log.d(LOG_TAG, "No paper");
 			return PrinterManager.PRINTER_ERR_NO_PAPER;
 		}
 		return 0;
