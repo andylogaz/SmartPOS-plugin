@@ -25,6 +25,9 @@
 		<source-file src="src/android/libs/paydevice-smartpos-sdk.jar" target-dir="libs" />
 		<source-file src="src/android/libs/zbar.jar" target-dir="libs" />
 		<source-file src="src/android/libs/zxing-core-3.2.0.jar" target-dir="libs" />
+		<source-file src="src/android/libs/armeabi-v7a/libiconv.so" target-dir="libs" />
+		<source-file src="src/android/libs/armeabi-v7a/libpaydevice-smartpos.so" target-dir="libs" />
+		<source-file src="src/android/libs/armeabi-v7a/libzbarjni.so" target-dir="libs" />
 
 		<source-file src="src/android/SmartPOSPlugin.java" target-dir="src/uk/co/smartrak/smartpos" />
 	</platform>

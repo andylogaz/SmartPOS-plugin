@@ -54,7 +54,7 @@ public class SmartPOSPlugin extends CordovaPlugin {
 	}
 
 	@Override
-	public void initialize(final CordovaInterface cordova, CordovaWebView webView)
+	public void initialize(CordovaInterface cordova, CordovaWebView webView)
 	{
 		Log.d(LOG_TAG, "Initializing");
 		super.initialize(cordova, webView);
