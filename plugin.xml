@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+	id="uk.co.smartrak.smartPOSPlugin" 
+	version="0.0.1">
+
+	<name>SmartPOS Plugin</name>
+	<description>SmartPOS Plugin</description>
+	<license>Apache 2.0</license>
+	<keywords>SmartPOS</keywords>
+
+	<js-module src="www/smartpos_plugin.js" name="SmartPOSPlugin">
+		<clobbers target="smartPosPlugin" />
+	</js-module>
+
+	<!-- android -->
+	<platform name="android">
+
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="BarcodeScannerPlugin">
+				<param name="android-package" value="uk.co.smartrak.smartpos.SmartPOSPlugin" />
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/libs/paydevice-smartpos-sdk.jar" target-dir="libs" />
+		<source-file src="src/android/libs/zbar.jar" target-dir="libs" />
+		<source-file src="src/android/libs/zxing-core-3.2.0.jar" target-dir="libs" />
+
+		<source-file src="src/android/smartPOSPlugin.java" target-dir="src/uk/co/smartrak/smartpos" />
+	</platform>
+
+</plugin>
